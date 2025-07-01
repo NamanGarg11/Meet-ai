@@ -4,6 +4,7 @@ import { LoadingState } from "@/components/loading-state";
 import { ErrorState } from "@/components/errorState";
 import { useTRPC } from "@/trpc/client";
 import { useQuery, useSuspenseQueries, useSuspenseQuery } from "@tanstack/react-query";
+
 const AgentView = () => {
   const trpc = useTRPC();
   const {data, isLoading, isError} = useSuspenseQuery(trpc.agents.getAgents.queryOptions());
@@ -21,10 +22,11 @@ const AgentView = () => {
       description="There was an error loading the agents. Please try again later."
     />
   }
-
+     
   return (
+    
     <div>
-
+      
       {JSON.stringify(data, null, 2)}
       <h1>Agents</h1>
     </div>
